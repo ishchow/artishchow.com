@@ -1,0 +1,15 @@
+# Zola build output
+public/
+
+# Processed images
+static/processed_images/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
