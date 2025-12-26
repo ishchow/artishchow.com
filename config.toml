@@ -1,9 +1,9 @@
 # The URL the site will be built for
 base_url = "https://artishchow.com"
 
-title = "Artish Chow"
+title = "artishchow"
 description = "Art portfolio and gallery"
-author = "Artish Chow"
+author = "Ishaat Chowdhury"
 
 theme = "zallery"
 
@@ -31,7 +31,7 @@ menu = [
 ]
 
 theme_color = "#313131"
-author_url = "https://artishchow.com"
+author_url = "https://www.ishaat.ca"
 
 # Gallery settings
 thumbnail_size = 400
