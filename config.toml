@@ -1,0 +1,53 @@
+# The URL the site will be built for
+base_url = "https://artishchow.com"
+
+title = "Artish Chow"
+description = "Art portfolio and gallery"
+author = "Artish Chow"
+
+theme = "zallery"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+generate_feeds = true
+
+taxonomies = [
+    {name = "tags", rss = false},
+]
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+
+[extra]
+# Navigation menu
+menu = [
+    {url = "atom.xml", name = "Feed"},
+]
+
+theme_color = "#313131"
+author_url = "https://artishchow.com"
+
+# Gallery settings
+thumbnail_size = 400
+thumbnail_format = "webp"
+thumbnail_quality = 90
+
+# Image shortcode settings
+covert_images = false
+create_mobile_images = false
+image_format = "webp"
+image_quality = 90
+
+# JavaScript features
+modelviewer = false
+jszoom = true
+
+# Footer
+hide_copyright = false
+hide_poweredby = false
