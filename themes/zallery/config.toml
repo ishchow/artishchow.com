@@ -1,0 +1,48 @@
+base_url = "https://gamingrobot.github.io/zallery-demo"
+
+title = "Zallery"
+description = "Zallery"
+author = "John Doe"
+
+#theme = "zallery"
+
+compile_sass = true
+generate_feeds = true
+
+taxonomies = [
+    {name = "tags", rss = false},
+]
+
+[extra]
+menu = [
+    {url = "atom.xml", name = "Feed"},
+    {url = "https://github.com/gamingrobot/zallery", name = "Github"},
+]
+
+theme_color = "#313131" # color for browser
+
+author_url = "https://example.com"
+cover_image = "img/cover.webp" # cover image on main gallery pages for opengraph and twitter embeds 
+
+hide_copyright = false # set to true to hide the copyright at the bottom of the page
+hide_poweredby = false # set to true to hide the poweredby at the bottom of the page
+
+# gallery settings
+thumbnail_size = 400 # size in pixels, you may need to adjust the media queries in _gallery.scss
+thumbnail_format = "webp" # auto, jpg, png, webp
+thumbnail_quality = 90 # value in percentage, only for webp and jpg
+
+# img shortcode settings
+covert_images = false # set to true to convert images to to the format in the image_format setting 
+create_mobile_images = false # set to true to create mobile friendly versions of the image
+image_format = "webp" # auto, jpg, png, webp
+image_quality = 90 # value in percentage, only for webp and jpg
+
+# https://modelviewer.dev/
+modelviewer = true # set to false to disable loading modelviewer javascript
+
+# https://github.com/francoischalifour/medium-zoom
+jszoom = true # set to false to disable javascript based image zoom (will fallback to link to the full image with a button)
+
+# https://www.goatcounter.com/
+# goatcounter = "goatcounter-code-here"
