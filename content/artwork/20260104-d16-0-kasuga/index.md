@@ -3,8 +3,6 @@ title = "Kasuga"
 description = "Day 16 artwork"
 date = 2026-01-04
 weight = 1
-[taxonomies]
-tags = ["Character Design"]
 [extra]
 thumbnail = "20260104_D16_0_Kasuga.jpg"
 +++

@@ -2,8 +2,6 @@
 title = "Akino"
 description = "Day 10 artwork"
 date = 2025-11-25
-[taxonomies]
-tags = ["Character Design"]
 [extra]
 thumbnail = "20251125_D10_Akino.jpg"
 +++

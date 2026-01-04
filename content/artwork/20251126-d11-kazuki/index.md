@@ -2,8 +2,6 @@
 title = "Kazuki"
 description = "Day 11 artwork"
 date = 2025-11-26
-[taxonomies]
-tags = ["Character Design"]
 [extra]
 thumbnail = "20251126_D11_Kazuki.jpg"
 +++
