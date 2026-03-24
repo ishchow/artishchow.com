@@ -23,6 +23,7 @@ collections:
     label_singular: Artwork
     folder: content/artwork
     path: "{{slug}}/index"
+    slug: "{{date | date('YYYYMMDD')}}-d{{day_number}}-{{title}}"
     summary: "{{slug}}"
     create: true
     extension: md
@@ -30,6 +31,7 @@ collections:
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Description, name: description, widget: string, required: false }
+      - { label: "Day Number", name: day_number, widget: string, hint: "e.g. 19 or 16-1" }
       - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
       - label: Taxonomies
         name: taxonomies
