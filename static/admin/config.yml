@@ -13,6 +13,10 @@ backend:
 #     account_id: c0b3bb517c4604eae20009c074ba284b
 #     public_url: https://images.artishchow.com
 
+# Required by Sveltia CMS even though we don't use internal media storage.
+media_folder: static/uploads
+public_folder: /uploads
+
 collections:
   - name: artwork
     label: Artwork
