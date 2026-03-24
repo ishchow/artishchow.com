@@ -19,14 +19,16 @@
           { name: "text", label: "Caption", widget: "string", required: false },
         ],
         pattern: /\{\{\s*img\(src="(?<src>[^"]*)"(?:,\s*alt="(?<alt>[^"]*)")?(?:,\s*text="(?<text>[^"]*)")?\)\s*\}\}/,
-        toBlock: ({ src, alt, text }) => {
+        toBlock: ({ src, alt, text } = {}) => {
+          if (!src) return "";
           const url = src.startsWith("http") ? src : `https://images.artishchow.com/${src}`;
           let s = `{{ img(src="${url}", alt="${alt || ""}")`;
           if (text) s = `{{ img(src="${url}", alt="${alt || ""}", text="${text}")`;
           return s + " }}";
         },
-        toPreview: ({ src, alt, text }) => {
-          const url = src && src.startsWith("http") ? src : `https://images.artishchow.com/${src || ""}`;
+        toPreview: ({ src, alt, text } = {}) => {
+          if (!src) return "";
+          const url = src.startsWith("http") ? src : `https://images.artishchow.com/${src}`;
           let html = `<figure><img src="${url}" alt="${alt || ""}">`;
           if (text) html += `<figcaption>${text}</figcaption>`;
           return html + "</figure>";
