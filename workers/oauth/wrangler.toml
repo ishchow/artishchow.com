@@ -1,0 +1,10 @@
+name = "artishchow-oauth"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+
+# Set these via `wrangler secret put`:
+# GITHUB_CLIENT_ID
+# GITHUB_CLIENT_SECRET
+
+[vars]
+ALLOWED_ORIGIN = "https://artishchow.com"
