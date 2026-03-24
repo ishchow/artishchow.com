@@ -38,5 +38,5 @@ collections:
         name: extra
         widget: object
         fields:
-          - { label: Thumbnail, name: thumbnail, widget: image, hint: "800x800 thumbnail image" }
+          - { label: Thumbnail, name: thumbnail, widget: string, hint: "R2 URL for the 800x800 thumbnail" }
       - { label: Body, name: body, widget: markdown }
