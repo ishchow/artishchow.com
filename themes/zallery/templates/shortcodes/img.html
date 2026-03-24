@@ -1,6 +1,12 @@
 {% import "partials/macros.html" as macros %}
 <figure {% if fit %}class={{ fit }}{% endif %}>
   <picture>
+    {%- if src is starting_with("http") %}
+      <img src="{{ src }}" {% if alt %}alt="{{ alt }}"{% elif text %}alt="{{ text }}"{% endif %} loading="lazy">
+      <div class="img-action">
+        <a class="action" href="{{ src }}">{{ macros::svg_maximize() }}</a>
+      </div>
+    {%- else %}
     {%- set image_path = page.colocated_path ~ src %}
     {%- set image_meta = get_image_metadata(path=image_path) %}
     {%- if config.extra.covert_images %}
@@ -27,6 +33,7 @@
     <div class="img-action">
       <a class="action" href="{{ get_url(path=image_path) }}">{{ macros::svg_maximize() }}</a>
     </div>
+    {%- endif %}
   </picture>
   {%- if text %}
   <figcaption>
