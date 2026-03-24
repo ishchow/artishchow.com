@@ -2,7 +2,7 @@
 <figure {% if fit %}class={{ fit }}{% endif %}>
   <picture>
     {%- if src is starting_with("http") %}
-      <img src="{{ src }}" {% if alt %}alt="{{ alt }}"{% elif text %}alt="{{ text }}"{% endif %} loading="lazy">
+      <img src="{{ src }}" {% if alt %}alt="{{ alt }}"{% elif text %}alt="{{ text }}"{% endif %} crossorigin="anonymous" loading="lazy">
       <div class="img-action">
         <a class="action" href="{{ src }}">{{ macros::svg_maximize() }}</a>
       </div>

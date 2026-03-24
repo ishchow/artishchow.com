@@ -2,14 +2,22 @@ backend:
   name: github
   repo: ishchow/artishchow.com
   branch: main
-  base_url: https://oauth.artishchow.com
 
-# Disable default media handling — we use a custom R2 media library
-media_library:
-  name: r2
-  config:
-    upload_url: https://upload.artishchow.com
-    public_url: https://images.artishchow.com
+publish_mode: editorial_workflow
+
+# R2 integration disabled — Sveltia CMS R2 media picker doesn't work on
+# Android (mobile Chrome/Firefox). Image URLs are pasted manually instead.
+# Re-enable when https://github.com/sveltia/sveltia-cms/issues/XXX is fixed.
+# media_libraries:
+#   cloudflare_r2:
+#     access_key_id: 2e88c7cef5bad24c596afef420546f76
+#     bucket: artishchow-images
+#     account_id: c0b3bb517c4604eae20009c074ba284b
+#     public_url: https://images.artishchow.com
+
+# Required by Sveltia CMS even though we don't use internal media storage.
+media_folder: static/uploads
+public_folder: /uploads
 
 collections:
   - name: artwork
@@ -17,17 +25,29 @@ collections:
     label_singular: Artwork
     folder: content/artwork
     path: "{{slug}}/index"
+    slug: "{{date | date('YYYYMMDD')}}-d{{day_number}}-{{title}}"
+    summary: "{{slug}}"
     create: true
     extension: md
     format: toml-frontmatter
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Description, name: description, widget: string, required: false }
+      - { label: "Day Number", name: day_number, widget: string, hint: "e.g. 19 or 16-1" }
       - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
-      - label: Tags
-        name: taxonomies.tags
-        widget: list
-        allow_add: true
+      - label: Taxonomies
+        name: taxonomies
+        widget: object
         required: false
-      - { label: Thumbnail URL, name: extra.thumbnail, widget: string, hint: "R2 URL for the thumbnail image (800x800)" }
+        fields:
+          - label: Tags
+            name: tags
+            widget: list
+            allow_add: true
+            required: false
+      - label: Extra
+        name: extra
+        widget: object
+        fields:
+          - { label: Thumbnail, name: thumbnail, widget: string, hint: "R2 filename, e.g. 20251119_D4_Kasasagi.jpg" }
       - { label: Body, name: body, widget: markdown }
