@@ -4,8 +4,6 @@
     {%- if page.extra.thumbnail %}
         {%- if page.extra.thumbnail is starting_with("http") %}
         <img width="{{ config.extra.thumbnail_size }}" height="{{ config.extra.thumbnail_size }}" src="{{ page.extra.thumbnail }}" alt="{{ page.title }}"/>
-        {%- elif config.extra.r2_public_url and not page.extra.thumbnail is containing("/") %}
-        <img width="{{ config.extra.thumbnail_size }}" height="{{ config.extra.thumbnail_size }}" src="{{ config.extra.r2_public_url }}/{{ page.extra.thumbnail }}" alt="{{ page.title }}"/>
         {%- else %}
         {%- set image_path = page.colocated_path ~ page.extra.thumbnail %}
         {%- set image = resize_image(path=image_path, width=config.extra.thumbnail_size*2, height=config.extra.thumbnail_size*2, format=config.extra.thumbnail_format, quality=config.extra.thumbnail_quality, op="fill") %}

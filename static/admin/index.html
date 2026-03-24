@@ -9,6 +9,20 @@
   <body>
     <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
     <script>
+      const R2_BASE = "https://images.artishchow.com";
+
+      // Auto-prepend R2 base URL to bare thumbnail filenames before saving
+      CMS.registerEventListener({
+        name: "preSave",
+        handler: ({ entry }) => {
+          const thumb = entry.data.extra?.thumbnail;
+          if (thumb && !thumb.startsWith("http")) {
+            entry.data.extra.thumbnail = `${R2_BASE}/${thumb}`;
+          }
+          return entry.data;
+        },
+      });
+
       CMS.registerEditorComponent({
         id: "r2-image",
         label: "R2 Image",

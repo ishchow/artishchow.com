@@ -23,9 +23,6 @@
         {%- if page.extra.thumbnail is starting_with("http") %}
         <meta content="{{ page.extra.thumbnail }}" property="og:image"/>
         <meta content="{{ page.extra.thumbnail }}" property="twitter:image"/>
-        {%- elif config.extra.r2_public_url and not page.extra.thumbnail is containing("/") %}
-        <meta content="{{ config.extra.r2_public_url }}/{{ page.extra.thumbnail }}" property="og:image"/>
-        <meta content="{{ config.extra.r2_public_url }}/{{ page.extra.thumbnail }}" property="twitter:image"/>
         {%- else %}
         {%- set image_path = page.colocated_path ~ page.extra.thumbnail %}
         {%- set image = resize_image(path=image_path, width=1500, height=1500, format=config.extra.thumbnail_format, quality=config.extra.thumbnail_quality, op="fit") %}
