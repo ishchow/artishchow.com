@@ -1,0 +1,33 @@
+backend:
+  name: github
+  repo: ishchow/artishchow.com
+  branch: main
+  base_url: https://oauth.artishchow.com
+
+# Disable default media handling — we use a custom R2 media library
+media_library:
+  name: r2
+  config:
+    upload_url: https://upload.artishchow.com
+    public_url: https://images.artishchow.com
+
+collections:
+  - name: artwork
+    label: Artwork
+    label_singular: Artwork
+    folder: content/artwork
+    path: "{{slug}}/index"
+    create: true
+    extension: md
+    format: toml-frontmatter
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: string, required: false }
+      - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - label: Tags
+        name: taxonomies.tags
+        widget: list
+        allow_add: true
+        required: false
+      - { label: Thumbnail URL, name: extra.thumbnail, widget: string, hint: "R2 URL for the thumbnail image (800x800)" }
+      - { label: Body, name: body, widget: markdown }

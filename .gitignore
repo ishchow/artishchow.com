@@ -4,6 +4,9 @@ public/
 # Processed images
 static/processed_images/
 
+# Node
+node_modules/
+
 # macOS
 .DS_Store
 
