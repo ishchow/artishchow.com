@@ -2,7 +2,7 @@
 
 ## Overview
 
-Personal art portfolio built with [Zola](https://getzola.org) static site generator using the vendored **Zallery** theme (`themes/zallery/`). Images stored in Cloudflare R2, content managed via Decap CMS, deployed on Cloudflare Pages.
+Personal art portfolio built with [Zola](https://getzola.org) static site generator using the vendored **Zallery** theme (`themes/zallery/`). Images stored in Cloudflare R2, content managed via Sveltia CMS, deployed on Cloudflare Pages.
 
 ## Architecture
 
@@ -10,17 +10,13 @@ Personal art portfolio built with [Zola](https://getzola.org) static site genera
 |---------|--------|---------|
 | Cloudflare Pages | `artishchow.com` | Static site hosting, auto-deploys from `main` |
 | Cloudflare R2 | `images.artishchow.com` | Image storage (CDN automatic via custom domain) |
-| Upload Worker | `upload.artishchow.com` | R2 upload/list/delete API, protected by Cloudflare Access |
-| OAuth Worker | `oauth.artishchow.com` | GitHub OAuth proxy for Decap CMS login |
-| Decap CMS | `artishchow.com/admin/` | Git-based content management UI |
+| Sveltia CMS | `artishchow.com/admin/` | Git-based CMS with native R2 integration |
 
 ### Key directories
 
 - `content/artwork/<slug>/index.md` — artwork posts (TOML frontmatter)
 - `themes/zallery/` — vendored theme with custom modifications for remote images
-- `static/admin/` — Decap CMS (index.html, config.yml, r2-media.js)
-- `workers/upload/` — Cloudflare Worker for R2 image uploads
-- `workers/oauth/` — Cloudflare Worker for GitHub OAuth proxy
+- `static/admin/` — Sveltia CMS (index.html, config.yml)
 
 ## Build and Test
 
@@ -28,12 +24,6 @@ Personal art portfolio built with [Zola](https://getzola.org) static site genera
 zola serve          # Local dev with hot reload (http://127.0.0.1:1111)
 zola build          # Production build (outputs to ./public/)
 zola check          # Link checking
-```
-
-Workers are deployed independently:
-```bash
-cd workers/upload && npm install && npx wrangler deploy
-cd workers/oauth && npm install && npx wrangler deploy
 ```
 
 ## Image Handling
