@@ -16,6 +16,7 @@ collections:
     label_singular: Artwork
     folder: content/artwork
     path: "{{slug}}/index"
+    summary: "{{slug}}"
     create: true
     extension: md
     format: toml-frontmatter
