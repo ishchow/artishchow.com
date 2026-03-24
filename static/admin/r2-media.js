@@ -1,21 +1,13 @@
 // Custom R2 media library for Decap CMS.
-// Uploads files to the R2 upload Worker and lists existing files.
+// Follows the same init/show/hide/enableStandalone pattern as the
+// official Cloudinary media library integration.
 
-const R2MediaLibrary = {
-  name: "r2",
+async function init({ options = {}, handleInsert } = {}) {
+  const uploadUrl = options.upload_url || "";
+  const publicUrl = options.public_url || "";
 
-  init({ options }) {
-    this.uploadUrl = options.upload_url || "";
-    this.publicUrl = options.public_url || "";
-  },
-
-  // Called when the media library UI is opened
-  async show({ config, allowMultiple }) {
-    this.uploadUrl = config?.upload_url || this.uploadUrl;
-    this.publicUrl = config?.public_url || this.publicUrl;
-
-    return new Promise((resolve) => {
-      // Create a simple file picker dialog
+  return {
+    show({ config: instanceConfig = {}, allowMultiple } = {}) {
       const input = document.createElement("input");
       input.type = "file";
       input.accept = "image/*";
@@ -23,44 +15,49 @@ const R2MediaLibrary = {
 
       input.addEventListener("change", async () => {
         const files = Array.from(input.files || []);
-        if (files.length === 0) {
-          resolve([]);
-          return;
-        }
+        if (files.length === 0) return;
 
         const uploaded = [];
         for (const file of files) {
           const formData = new FormData();
           formData.append("file", file);
 
-          const response = await fetch(`${this.uploadUrl}/upload`, {
-            method: "POST",
-            body: formData,
-            credentials: "include",
-          });
+          try {
+            const response = await fetch(`${uploadUrl}/upload`, {
+              method: "POST",
+              body: formData,
+              credentials: "include",
+            });
 
-          if (response.ok) {
-            const data = await response.json();
-            uploaded.push({ url: data.url, path: data.url });
-          } else {
-            console.error(`Upload failed for ${file.name}:`, await response.text());
+            if (response.ok) {
+              const data = await response.json();
+              uploaded.push(data.url);
+            } else {
+              console.error(`Upload failed for ${file.name}:`, await response.text());
+            }
+          } catch (err) {
+            console.error(`Upload error for ${file.name}:`, err);
           }
         }
 
-        resolve(uploaded.length === 1 ? uploaded[0] : uploaded);
+        if (uploaded.length > 0) {
+          handleInsert(uploaded.length === 1 ? uploaded[0] : uploaded);
+        }
       });
 
-      input.addEventListener("cancel", () => resolve([]));
       input.click();
-    });
-  },
+    },
 
-  // Called when Decap needs to enable/disable the insert button
-  enableStandalone() {
-    return true;
-  },
-};
+    hide() {},
+
+    enableStandalone() {
+      return true;
+    },
+  };
+}
+
+const r2MediaLibrary = { name: "r2", init };
 
 if (window.CMS) {
-  window.CMS.registerMediaLibrary(R2MediaLibrary);
+  window.CMS.registerMediaLibrary(r2MediaLibrary);
 }
