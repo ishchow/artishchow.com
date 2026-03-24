@@ -23,10 +23,19 @@ collections:
       - { label: Title, name: title, widget: string }
       - { label: Description, name: description, widget: string, required: false }
       - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
-      - label: Tags
-        name: taxonomies.tags
-        widget: list
-        allow_add: true
+      - label: Taxonomies
+        name: taxonomies
+        widget: object
         required: false
-      - { label: Thumbnail, name: extra.thumbnail, widget: image, hint: "800x800 thumbnail image" }
+        fields:
+          - label: Tags
+            name: tags
+            widget: list
+            allow_add: true
+            required: false
+      - label: Extra
+        name: extra
+        widget: object
+        fields:
+          - { label: Thumbnail, name: thumbnail, widget: image, hint: "800x800 thumbnail image" }
       - { label: Body, name: body, widget: markdown }
