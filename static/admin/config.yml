@@ -3,6 +3,8 @@ backend:
   repo: ishchow/artishchow.com
   branch: main
 
+publish_mode: editorial_workflow
+
 # R2 integration disabled — Sveltia CMS R2 media picker doesn't work on
 # Android (mobile Chrome/Firefox). Image URLs are pasted manually instead.
 # Re-enable when https://github.com/sveltia/sveltia-cms/issues/XXX is fixed.
