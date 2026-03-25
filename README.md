@@ -78,8 +78,3 @@ New posts use R2 URLs. Older posts with colocated images continue to work.
 ## License
 
 Content and artwork are &copy; Ishaat Chowdhury. The Zallery theme has its own [license](themes/zallery/LICENSE).
-
-## Minor change
-
-TODO: ???
-???
