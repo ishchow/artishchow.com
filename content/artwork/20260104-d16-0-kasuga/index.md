@@ -7,7 +7,7 @@ weight = 1
 thumbnail = "20260104_D16_0_Kasuga.jpg"
 
 [taxonomies]
-tags = [ "Kasuga" ]
+tags = [ "Kakuriyo" ]
 +++
 
 {{ img(src="20260104_D16_0_Kasuga.jpg", alt="Kasuga character artwork") }}
