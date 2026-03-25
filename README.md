@@ -56,7 +56,7 @@ thumbnail = "https://images.artishchow.com/20260312_D19_Thumbnail.jpg"
 ### Conventions
 
 - **Slug format:** `YYYYMMDD-dN-title` (e.g., `20260312-d19-doux`)
-- **Image filenames:** `YYYYMMDD_DN_Description.jpg` (e.g., `20251119_D4_Kasasagi.jpg`)
+- **Image filenames:** `YYYYMMDD_DN_Description.webp` (e.g., `20251119_D4_Kasasagi.webp`)
 - **Thumbnails:** 800×800, WebP format
 
 ### Image Handling
