@@ -30,15 +30,19 @@ jobs:
         if: github.event_name == 'pull_request'
         run: zola build --base-url /
 
+      - name: Cache npm packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-${{ runner.os }}-wrangler
+
       - name: Deploy to Cloudflare Pages
         id: deploy
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: artishchow-com
-          directory: public
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: pages deploy public --project-name=artishchow-com
 
       - name: Comment preview URL on PR
         if: github.event_name == 'pull_request'
@@ -52,5 +56,5 @@ jobs:
             |---|---|
             | **Latest commit:** | `${{ github.event.pull_request.head.sha }}` |
             | **Status:** | Deploy successful |
-            | **Preview URL:** | ${{ steps.deploy.outputs.url }} |
-            | **Branch Preview URL:** | ${{ steps.deploy.outputs.alias }} |
+            | **Preview URL:** | ${{ steps.deploy.outputs.deployment-url }} |
+            | **Branch Preview URL:** | ${{ steps.deploy.outputs.deployment-alias-url }} |

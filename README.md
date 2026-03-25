@@ -16,7 +16,7 @@ Built with [Zola](https://www.getzola.org/) using a vendored [Zallery](themes/za
 
 ```
 config.toml                  # Zola site config
-content/artwork/<slug>/      # Artwork posts (TOML frontmatter)
+content/artwork/<slug>.md    # Artwork posts (TOML frontmatter, flat files)
 themes/zallery/              # Vendored theme (customized for remote images)
 static/admin/                # Sveltia CMS (config.yml + index.html)
 sass/                        # Site-level Sass overrides
@@ -37,7 +37,7 @@ zola check    # Validate internal links
 
 ## Adding Artwork
 
-Each artwork post lives at `content/artwork/<slug>/index.md` with TOML frontmatter:
+Each artwork post is a flat file at `content/artwork/<slug>.md` with TOML frontmatter:
 
 ```toml
 +++
