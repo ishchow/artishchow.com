@@ -22,7 +22,6 @@ collections:
     label: Artwork
     label_singular: Artwork
     folder: content/artwork
-    path: "{{slug}}/index"
     slug: "{{date | date('YYYYMMDD')}}-d{{day_number}}-{{title}}"
     summary: "{{slug}}"
     create: true
