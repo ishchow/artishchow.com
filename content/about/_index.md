@@ -8,3 +8,5 @@ Sometime in the back half of 2025, I watched PewDiePie's [video](https://youtu.b
 I started just posting my stuff to a group chat with my family when they asked me what I was drawing. Eventually I wanted to create my own digital sketchbook. Which is why I created this site using [Zola](https://www.getzola.org/) and the [Zallery](https://github.com/gamingrobot/zallery) theme. I host the images on [Cloudflare R2](https://www.cloudflare.com/developer-platform/products/r2/) and the site itself on [Cloudflare Pages](https://www.cloudflare.com/developer-platform/pages/). For every post, I try to keep what I draw as well as references in the same post.
 
 I draw with both pencil and paper as well as my on Wacom Movinginkpad 11 tablet using Clip Studio Paint.
+
+I'm a software engineer. You can checkout my dev blog [here](https://ishaat.ca/).
