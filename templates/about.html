@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ section.title }} - {{ config.title }}
+{% endblock title %}
+
+{% block metadata %}
+    <meta content="website" property="og:type"/>
+    <meta content="{{ config.title }}" property="og:site_name"/>
+    <meta content="{{ current_url | safe }}" property="og:url"/>
+    <meta content="{{ current_url | safe }}" property="twitter:url"/>
+    {%- if section.title %}
+        <meta content="{{ section.title }}" property="og:title"/>
+        <meta content="{{ section.title }}" property="twitter:title"/>
+    {%- endif %}
+    {%- if section.description %}
+        <meta content="{{ section.description }}" property="og:description"/>
+        <meta content="{{ section.description }}" property="description"/>
+        <meta content="{{ section.description }}" property="twitter:description"/>
+    {%- endif %}
+{% endblock metadata %}
+
+{% block content %}
+<div class="page">
+    <header>
+        <h1>{{ section.title }}</h1>
+        {% if section.description %}
+        <p>{{ section.description }}</p>
+        {% endif %}
+    </header>
+    <section>
+        {{ section.content | safe }}
+    </section>
+    {% include "partials/credit.html" %}
+</div>
+{% endblock content %}
