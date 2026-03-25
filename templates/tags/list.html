@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Tags - {{ config.title }}
+{% endblock title %}
+
+{% block content %}
+<div class=page>
+    <h1>Tags</h1>
+    <div id="tag-list" style="display:flex; flex-wrap:wrap; gap:0.5em;">
+        {% for term in terms %}
+        <a class="badge badge-tag" href="{{ term.permalink }}" data-count="{{ term.pages | length }}">{{ term.name }} ({{ term.pages | length }})</a>
+        {% endfor %}
+    </div>
+</div>
+<script>
+(function() {
+    var list = document.getElementById("tag-list");
+    var items = Array.from(list.children);
+    items.sort(function(a, b) {
+        return parseInt(b.dataset.count) - parseInt(a.dataset.count);
+    });
+    items.forEach(function(el) { list.appendChild(el); });
+})();
+</script>
+{% endblock content %}

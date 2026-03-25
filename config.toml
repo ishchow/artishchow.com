@@ -22,6 +22,7 @@ taxonomies = [
 [extra]
 # Navigation menu
 menu = [
+    {url = "tags", name = "Tags"},
     {url = "atom.xml", name = "Feed"},
 ]
 

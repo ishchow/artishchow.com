@@ -4,6 +4,9 @@ description = "Day 5 artwork"
 date = 2025-11-20
 [extra]
 thumbnail = "20251120_D5_Kirby.jpg"
+
+[taxonomies]
+tags = [ "Kirby" ]
 +++
 
 {{ img(src="20251120_D5_Kirby.jpg", alt="Kirby artwork") }}
