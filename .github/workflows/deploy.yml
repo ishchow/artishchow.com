@@ -18,12 +18,17 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install Zola
-        run: |
-          curl -sL https://github.com/getzola/zola/releases/download/v0.22.1/zola-v0.22.1-x86_64-unknown-linux-gnu.tar.gz | tar zxv
-          sudo mv zola /usr/local/bin/
+        uses: taiki-e/install-action@v2
+        with:
+          tool: zola@0.22.1
 
-      - name: Build site
+      - name: Build site (production)
+        if: github.event_name == 'push'
         run: zola build
+
+      - name: Build site (preview)
+        if: github.event_name == 'pull_request'
+        run: zola build --base-url /
 
       - name: Deploy to Cloudflare Pages
         id: deploy
