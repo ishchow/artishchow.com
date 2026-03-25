@@ -5,6 +5,9 @@ date = 2026-03-12
 
 [extra]
 thumbnail = "https://images.artishchow.com/20260312_D19_Doux_thumbnail.jpg"
+
+[taxonomies]
+tags = [ "The Demon King's Daughter is Too Kind!!" ]
 +++
 
 {{ img(src="https://images.artishchow.com/20260312_D19_Doux.jpg", alt="Doux") }}
