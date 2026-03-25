@@ -14,7 +14,7 @@ Personal art portfolio built with [Zola](https://getzola.org) static site genera
 
 ### Key directories
 
-- `content/artwork/<slug>/index.md` — artwork posts (TOML frontmatter)
+- `content/artwork/<slug>.md` — artwork posts (TOML frontmatter, flat files)
 - `themes/zallery/` — vendored theme with custom modifications for remote images
 - `static/admin/` — Sveltia CMS (index.html, config.yml)
 
@@ -28,19 +28,15 @@ zola check          # Link checking
 
 ## Image Handling
 
-Theme templates (`thumbnail.html`, `img.html` shortcode) have if/else branches:
-- If `thumbnail` or `src` starts with `http` → use URL directly (remote R2 image, with `crossorigin="anonymous"`)
-- Otherwise → use Zola's `resize_image()` / `get_image_metadata()` (colocated local file)
-
-Both paths coexist. Existing posts use local files, new posts use R2 URLs.
+All images are hosted on Cloudflare R2 (`https://images.artishchow.com/`). Theme templates (`thumbnail.html`, `img.html` shortcode) detect `http` URLs and render them directly with `crossorigin="anonymous"`.
 
 CMS `preSave` hook and editor component auto-prepend `https://images.artishchow.com/` to bare filenames.
 
 ## Conventions
 
-- Artwork must be in `content/artwork/` for prev/next navigation (`page.lower`/`page.higher`)
+- Artwork posts are flat files in `content/artwork/` for prev/next navigation (`page.lower`/`page.higher`)
 - `content/artwork/_index.md` has `transparent = true` — artwork appears at root URL
 - Slug format: `YYYYMMDD-dN-title` (e.g., `20260312-d19-doux`)
-- Thumbnail images are 800x800, generated manually on phone before upload
-- Image filenames: `YYYYMMDD_DN_Description.jpg` (e.g., `20251119_D4_Kasasagi.jpg`)
+- Thumbnail images are 800×800 WebP, uploaded to R2
+- Image filenames: `YYYYMMDD_DN_Description.webp` (e.g., `20251119_D4_Kasasagi.webp`)
 - Config in `config.toml` under `[extra]`: `r2_public_url`, gallery settings, image processing settings

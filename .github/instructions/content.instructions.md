@@ -4,7 +4,9 @@ applyTo: "content/artwork/**"
 ---
 # Content Authoring
 
-## New posts (R2 images)
+## Post format
+
+All images are hosted on Cloudflare R2 (`https://images.artishchow.com/`).
 
 ```toml
 +++
@@ -14,33 +16,21 @@ date = 2024-11-01
 [taxonomies]
 tags = ["Tag1", "Tag2"]
 [extra]
-thumbnail = "https://images.artishchow.com/thumbnail.jpg"
+thumbnail = "https://images.artishchow.com/YYYYMMDD_DN_Title_thumbnail.webp"
 +++
 
-{{ img(src="https://images.artishchow.com/original.jpg", alt="Description") }}
-```
-
-## Existing posts (colocated images)
-
-```toml
-+++
-title = "Artwork Title"
-[extra]
-thumbnail = "image.jpg"
-+++
-
-{{ img(src="image.jpg", alt="Description") }}
+{{ img(src="https://images.artishchow.com/YYYYMMDD_DN_Title.webp", alt="Description") }}
 ```
 
 ## Rules
 
-- Posts must be at `content/artwork/<slug>/index.md` — required for prev/next navigation
+- Posts are flat files at `content/artwork/<slug>.md`
 - Slug format: `YYYYMMDD-dN-title` (e.g., `20260312-d19-doux`)
 - TOML frontmatter with `+++` delimiters
-- `thumbnail` in `[extra]` — either a full R2 URL or a colocated filename
+- `thumbnail` in `[extra]` — full R2 URL to an 800×800 WebP thumbnail
 - Body images use `{{ img(src="...", alt="...") }}` shortcode, optionally with `text="Caption"`
 - Reference images: `{{ img(src="...", alt="...", text="Reference") }}`
-- Remote `<img>` tags include `crossorigin="anonymous"` for CORS compatibility
+- `crossorigin="anonymous"` is added automatically by the template for remote images
 
 ## Sveltia CMS (`static/admin/`)
 
