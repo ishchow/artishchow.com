@@ -15,11 +15,11 @@
       CMS.registerEventListener({
         name: "preSave",
         handler: ({ entry }) => {
-          const thumb = entry.data.extra?.thumbnail;
+          const thumb = entry.getIn(["data", "extra", "thumbnail"]);
           if (thumb && !thumb.startsWith("http")) {
-            entry.data.extra.thumbnail = `${R2_BASE}/${thumb}`;
+            return entry.setIn(["data", "extra", "thumbnail"], `${R2_BASE}/${thumb}`);
           }
-          return entry.data;
+          return entry;
         },
       });
 
