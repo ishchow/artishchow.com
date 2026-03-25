@@ -5,6 +5,9 @@ date = 2026-01-04
 weight = 1
 [extra]
 thumbnail = "20260104_D16_0_Kasuga.jpg"
+
+[taxonomies]
+tags = [ "Kasuga" ]
 +++
 
 {{ img(src="20260104_D16_0_Kasuga.jpg", alt="Kasuga character artwork") }}
