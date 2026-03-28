@@ -1,0 +1,62 @@
+@import 'variables';
+@import '../themes/zallery/sass/imports';
+
+html {
+  background-color: $body-background-color;
+}
+
+body {
+  min-height: 100vh;
+  background-color: $body-background-color;
+}
+
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background-color: $body-background-color !important;
+  }
+
+  .medium-zoom-overlay,
+  .img-action {
+    background-color: $body-background-color !important;
+  }
+}
+
+blockquote {
+  color: #c4b3a9;
+  border-left-color: $gray-3;
+}
+
+.topbar {
+  box-shadow: 0 1px 0 rgba($gray-4, 0.28);
+}
+
+.thumbnail-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba($ink, 0) 15%,
+    rgba($ink, 0.5) 58%,
+    rgba($charcoal, 0.92) 100%
+  );
+}
+
+.badge-tag,
+a.badge-tag {
+  box-shadow: 0 0 0 1px rgba($red, 0.08);
+}
+
+.credit {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  color: rgba($paper-soft, 0.72);
+  border-top: 1px solid rgba($warm-line, 0.16);
+
+  a {
+    color: #ddb1aa;
+  }
+}
+
+::selection {
+  color: $white;
+  background: rgba($red, 0.85);
+}

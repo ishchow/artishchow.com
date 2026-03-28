@@ -1,0 +1,110 @@
+$paper-bright: #fffaf6;
+$paper: #f6f1eb;
+$paper-soft: #ece3db;
+$warm-line: #d8cbc1;
+$stone: #bfaea2;
+$taupe: #9d8a7f;
+$umber: #6d5a53;
+$coffee: #50413b;
+$charcoal: #221c19;
+$ink: #161311;
+
+$gray-0: $paper-bright;
+$gray-1: $paper;
+$gray-2: $paper-soft;
+$gray-3: $warm-line;
+$gray-4: $stone;
+$gray-5: $taupe;
+$gray-6: $umber;
+$gray-7: $coffee;
+$gray-8: $charcoal;
+$gray-9: $ink;
+
+$white: $paper-bright;
+$red: #8f1d1d;
+$orange: #b86a63;
+$yellow: #c69a4b;
+$green: #6d7a58;
+$cyan: #6a8f90;
+$blue: #5b6f8f;
+$brown: #7f5845;
+
+$root-font-family: "InterVariable", system-ui, sans-serif;
+
+$root-font-size: 1rem;
+$root-font-weight: 400;
+$root-line-height: 1.5;
+
+$large-font-size: 1.1rem;
+$small-device-font-size: $root-font-size;
+$large-device-font-size: $large-font-size;
+
+// heading
+$heading-font-weight: 400;
+$h1-font-size: 2.15rem;
+$h1-line-height: 1.25;
+$h2-font-size: 1.85rem;
+$h3-font-size: 1.5rem;
+$h4-font-size: 1.3rem;
+$h5-font-size: 1rem;
+
+// topbar
+$topbar-title-font-size: 1.5rem;
+$topbar-links-font-size: 1rem;
+$topbar-height: 3rem;
+$topbar-offset: 0.75rem;
+$topbar-max-width: 100rem;
+
+// copyright/poweredby
+$credit-font-size: 0.7rem;
+
+// content
+$small-device-content-padding: 0.5rem;
+$large-device-content-padding: 1rem;
+
+// artwork
+$meta-font-size: 0.8rem;
+$tag-font-size: 0.8rem;
+
+// gallery
+$thumbnail-info-color: $white;
+$thumbnail-info-font-size: 1.3rem;
+$thumbnail-info-font-weight: 400;
+
+/*** light mode ***/
+$body-color: #e9ddd5;
+$body-background-color: #3a2a2d;
+
+// links
+$link-color: #d7aba4;
+$link-hover-color: #f0c7c1;
+
+// topbar
+$topbar-background-color: $gray-8;
+$topbar-link-color: $gray-2;
+$topbar-link-hover-color: #ddb1aa;
+
+// artwork
+$meta-color: #c8b9b0;
+$tag-color: $white;
+$tag-background-color: #7a1f1f;
+$tag-hover-background-color: #4a3538;
+
+/*** dark mode ***/
+$body-color-dark: $gray-2;
+$body-background-color-dark: $ink;
+
+// links
+$link-color-dark: #ddb1aa;
+$link-hover-color-dark: #f0c7c1;
+
+// topbar
+$topbar-background-color-dark: #100d0c;
+$topbar-link-color-dark: $gray-2;
+$topbar-link-hover-color-dark: #f0c7c1;
+
+// artwork
+$meta-color-dark: $gray-4;
+$tag-color-dark: $white;
+$tag-background-color-dark: #7a1f1f;
+$tag-hover-background-color-dark: $coffee;
