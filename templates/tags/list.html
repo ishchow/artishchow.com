@@ -5,8 +5,7 @@
 {% endblock title %}
 
 {% block content %}
-<div class=page>
-    <h1>Tags</h1>
+<div class="page" style="padding-top: 1.5rem;">
     <div id="tag-list" style="display:flex; flex-wrap:wrap; gap:0.5em;">
         {% for term in terms %}
         <a class="badge badge-tag" href="{{ term.permalink }}" data-count="{{ term.pages | length }}">{{ term.name }} ({{ term.pages | length }})</a>
