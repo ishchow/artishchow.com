@@ -2,10 +2,11 @@
 @import '../themes/zallery/sass/imports';
 
 body {
-  background: linear-gradient(180deg, $gray-0 0%, $body-background-color 24rem);
+  background: linear-gradient(180deg, #171111 0%, #211718 14rem, $body-background-color 100%);
 }
 
 blockquote {
+  color: #c4b3a9;
   border-left-color: $gray-3;
 }
 
@@ -25,6 +26,17 @@ blockquote {
 .badge-tag,
 a.badge-tag {
   box-shadow: 0 0 0 1px rgba($red, 0.08);
+}
+
+.credit {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  color: rgba($paper-soft, 0.72);
+  border-top: 1px solid rgba($warm-line, 0.16);
+
+  a {
+    color: #ddb1aa;
+  }
 }
 
 ::selection {

@@ -72,12 +72,12 @@ $thumbnail-info-font-size: 1.3rem;
 $thumbnail-info-font-weight: 400;
 
 /*** light mode ***/
-$body-color: $gray-9;
-$body-background-color: $gray-1;
+$body-color: #e9ddd5;
+$body-background-color: #2b2021;
 
 // links
-$link-color: #7c3632;
-$link-hover-color: $red;
+$link-color: #d7aba4;
+$link-hover-color: #f0c7c1;
 
 // topbar
 $topbar-background-color: $gray-8;
@@ -85,10 +85,10 @@ $topbar-link-color: $gray-2;
 $topbar-link-hover-color: #ddb1aa;
 
 // artwork
-$meta-color: $gray-6;
+$meta-color: #bfaea2;
 $tag-color: $white;
-$tag-background-color: $red;
-$tag-hover-background-color: $gray-8;
+$tag-background-color: #7a1f1f;
+$tag-hover-background-color: #3a2b2c;
 
 /*** dark mode ***/
 $body-color-dark: $gray-2;
