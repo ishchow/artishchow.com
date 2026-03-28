@@ -1,8 +1,15 @@
 @import 'variables';
 @import '../themes/zallery/sass/imports';
 
+html {
+  background-color: $topbar-background-color;
+}
+
 body {
-  background: linear-gradient(180deg, #211718 0%, #2c1f22 14rem, $body-background-color 100%);
+  min-height: 100vh;
+  background-color: $body-background-color;
+  background-image: linear-gradient(180deg, #211718 0%, #2c1f22 14rem, $body-background-color 100%);
+  background-repeat: no-repeat;
 }
 
 blockquote {
