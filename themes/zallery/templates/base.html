@@ -40,8 +40,8 @@
         {% include "partials/font_preload.html" %}
         {# CSS #}
         {% block css %}
-            <link href="{{ get_url(path="fonts.css") }}" rel="stylesheet" type="text/css"/>
-            <link href="{{ get_url(path="zallery.css") }}" rel="stylesheet" type="text/css"/>
+            <link href="{{ get_url(path="fonts.css", cachebust=true) }}" rel="stylesheet" type="text/css"/>
+            <link href="{{ get_url(path="zallery.css", cachebust=true) }}" rel="stylesheet" type="text/css"/>
         {% endblock css %}
         {% block extra_head %}
         {% endblock extra_head %}
