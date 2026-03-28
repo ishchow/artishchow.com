@@ -27,7 +27,7 @@ menu = [
     {url = "atom.xml", name = "Feed"},
 ]
 
-theme_color = "#313131"
+theme_color = "#221c19"
 author_url = "https://www.ishaat.ca"
 
 # Gallery settings
