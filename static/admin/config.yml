@@ -19,7 +19,6 @@ collections:
     format: toml-frontmatter
     fields:
       - { label: Title, name: title, widget: string }
-      - { label: Description, name: description, widget: string, required: false }
       - { label: "Day Number", name: day_number, widget: number, value_type: int, min: 1, hint: "Manual day index, e.g. 19. Saved into [extra].day_number on save." }
       - { label: Weight, name: weight, widget: number, value_type: int, min: 1, default: 1, hint: "1 for the first post on a day, then increment for same-day followups." }
       - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }

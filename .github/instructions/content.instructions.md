@@ -31,7 +31,6 @@ thumbnail = "https://images.artishchow.com/YYYYMMDD_DN_Title_thumbnail.webp"
 - Store the custom day index in `[extra].day_number` so the artwork template can render it directly without duplicating `weight`
 - Preserve existing artwork slugs as-is; new CMS-created artwork slugs use `YYYYMMDD-dN-W-title` (e.g., `20260312-d19-1-doux`)
 - TOML frontmatter with `+++` delimiters
-- `description` is optional and should be used for real notes, not for repeated placeholders like `Day X artwork`
 - `years` in `[taxonomies]` should match the post date year; Sveltia CMS fills this automatically on save
 - `thumbnail` in `[extra]` — full R2 URL to an 800×800 WebP thumbnail
 - Body images use `{{ img(src="...", alt="...") }}` shortcode, optionally with `text="Caption"`

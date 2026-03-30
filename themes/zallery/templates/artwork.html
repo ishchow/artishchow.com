@@ -57,13 +57,12 @@
                 {{ page.date | date(format="%Y") }}
                 {%- endif -%}
             </span>
-            {% if page.description -%}
-                <p>{{ page.description | markdown(inline=true) | safe }}</p>
-            {%- endif -%}
             {%- if page.taxonomies.tags -%}
+            <div class="artwork-tags">
             {% for tag in page.taxonomies.tags %}
                 <p><a class="badge badge-tag" href="{{ get_taxonomy_url(kind="tags", name=tag) }}">{{ tag }}</a></p>
             {% endfor %}
+            </div>
             {%- endif %}
         </div>
         {% include "partials/credit.html" %}
