@@ -3,7 +3,20 @@
 {% block content %}
 <div class=artwork>
     {% set display_day_number = page.extra.day_number %}
-    {% set piece_weight = page.extra.weight | default(value=1) %}
+    {% set artwork_section = get_section(path="artwork/_index.md") %}
+    {% set current_date = page.date | date(format="%Y-%m-%d") %}
+    {% set_global piece_weight = 1 %}
+    {% if display_day_number %}
+        {% set_global same_day_count = 0 %}
+        {% for artwork_page in artwork_section.pages %}
+            {% if artwork_page.date | date(format="%Y-%m-%d") == current_date and artwork_page.extra.day_number == display_day_number %}
+                {% set_global same_day_count = same_day_count + 1 %}
+                {% if artwork_page.permalink == page.permalink %}
+                    {% set_global piece_weight = same_day_count %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
     <section class="artwork-nav">
         {% if page.lower %}
         <a class="action" href="{{ page.lower.permalink }}">{{ macros::svg_left() }}</a>

@@ -33,12 +33,11 @@
           }
 
           if (dayNumber !== null) {
-            nextEntry = nextEntry.setIn(["data", "day_number"], dayNumber);
             nextEntry = nextEntry.setIn(["data", "extra", "day_number"], dayNumber);
+            nextEntry = nextEntry.deleteIn(["data", "day_number"]);
           }
 
           nextEntry = nextEntry.setIn(["data", "weight"], weight);
-          nextEntry = nextEntry.setIn(["data", "extra", "weight"], weight);
 
           if (year) {
             nextEntry = nextEntry.setIn(["data", "taxonomies", "years"], [year]);
