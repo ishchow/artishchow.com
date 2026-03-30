@@ -15,7 +15,7 @@ Personal art portfolio built with [Zola](https://getzola.org) static site genera
 ### Key directories
 
 - `content/artwork/<slug>.md` — artwork posts (TOML frontmatter, flat files)
-- `themes/zallery/` — vendored theme with custom modifications for remote images
+- `themes/zallery/` — vendored theme with custom modifications for remote images; if a relevant file already exists here, prefer updating it over creating a root-level override unless the change is an intentional site-level replacement
 - `static/admin/` — Sveltia CMS (index.html, config.yml)
 
 ## Build and Test
@@ -36,7 +36,8 @@ CMS `preSave` hook and editor component auto-prepend `https://images.artishchow.
 
 - Artwork posts are flat files in `content/artwork/` for prev/next navigation (`page.lower`/`page.higher`)
 - `content/artwork/_index.md` has `transparent = true` — artwork appears at root URL
-- Slug format: `YYYYMMDD-dN-title` (e.g., `20260312-d19-doux`)
+- Artwork posts use top-level integer `day_number` and `weight` frontmatter; display metadata should derive from frontmatter, not from slug parsing
+- Preserve existing artwork slugs/URLs; new CMS-created artwork slugs use `YYYYMMDD-dN-W-title` where `W` is the 1-indexed `weight`
 - Thumbnail images are 800×800 WebP, uploaded to R2
 - Image filenames: `YYYYMMDD_DN_Description.webp` (e.g., `20251119_D4_Kasasagi.webp`)
 - Config in `config.toml` under `[extra]`: `r2_public_url`, gallery settings, image processing settings

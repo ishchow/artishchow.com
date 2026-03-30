@@ -2,6 +2,8 @@
 
 {% block content %}
 <div class=artwork>
+    {% set display_day_number = page.extra.day_number %}
+    {% set piece_weight = page.extra.weight | default(value=1) %}
     <section class="artwork-nav">
         {% if page.lower %}
         <a class="action" href="{{ page.lower.permalink }}">{{ macros::svg_left() }}</a>
@@ -26,6 +28,14 @@
     </section>
     <aside class=artwork-sidebar>
         <h1>{{ page.title }}</h1>
+        {% if display_day_number %}
+        <div class="artwork-day-meta">
+            <span class="artwork-day-badge">Day {{ display_day_number }}</span>
+            {% if piece_weight > 1 %}
+            <span class="artwork-piece-badge">Piece {{ piece_weight }}</span>
+            {% endif %}
+        </div>
+        {% endif %}
         <div class=artwork-meta>
             {%- set archive_year = page.taxonomies["years"] | first -%}
             <span class=date>

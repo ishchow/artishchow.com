@@ -12,7 +12,7 @@ collections:
     label: Artwork
     label_singular: Artwork
     folder: content/artwork
-    slug: "{{date | date('YYYYMMDD')}}-d{{day_number}}-{{title}}"
+    slug: "{{date | date('YYYYMMDD')}}-d{{day_number}}-{{weight}}-{{title}}"
     summary: "{{slug}}"
     create: true
     extension: md
@@ -20,7 +20,8 @@ collections:
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Description, name: description, widget: string, required: false }
-      - { label: "Day Number", name: day_number, widget: string, hint: "e.g. 19 or 16-1" }
+      - { label: "Day Number", name: day_number, widget: number, value_type: int, min: 1, hint: "Manual day index, e.g. 19" }
+      - { label: Weight, name: weight, widget: number, value_type: int, min: 1, default: 1, hint: "1 for the first post on a day, then increment for same-day followups." }
       - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
       - label: Taxonomies
         name: taxonomies
