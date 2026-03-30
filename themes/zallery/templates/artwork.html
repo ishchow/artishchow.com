@@ -28,6 +28,10 @@
         <h1>{{ page.title }}</h1>
         <div class=artwork-meta>
             <span class=date>{{ page.date | date(format="%b %d, %Y") }}</span>
+            {%- set archive_year = page.taxonomies["years"] | first -%}
+            {%- if archive_year -%}
+                <p><a class="badge badge-tag" href="{{ get_taxonomy_url(kind="years", name=archive_year) }}">Archive: {{ archive_year }}</a></p>
+            {%- endif %}
             {% if page.description -%}
                 <p>{{ page.description | markdown(inline=true) | safe }}</p>
             {%- endif -%}
@@ -54,4 +58,3 @@ images.forEach((img) => { mediumZoom(img, { margin: 0, background: "", scrollOff
 </script>  
 {% endif %}
 {% endblock js_body %}
-
