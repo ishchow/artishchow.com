@@ -7,6 +7,7 @@ thumbnail = "https://images.artishchow.com/20251118_D3_DiscOzone_Cover_thumbnail
 
 [taxonomies]
 tags = [ "Misc" ]
+years = [ "2025" ]
 +++
 
 {{ img(src="https://images.artishchow.com/20251118_D3_DiscOzone_Cover.webp", alt="Disc Ozone Cover artwork") }}

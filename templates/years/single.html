@@ -1,0 +1,12 @@
+{% extends "gallery.html" %}
+
+{% block title %}
+    {{ term.name }} Archive - {{ config.title }}
+{% endblock title %}
+
+{% block gallery_header %}
+    <header class="page-header">
+        <h1>{{ term.name }}</h1>
+        <p class="page-header-lede">{{ term.page_count }} post{% if term.page_count != 1 %}s{% endif %}</p>
+    </header>
+{% endblock gallery_header %}

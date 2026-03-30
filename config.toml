@@ -17,12 +17,14 @@ generate_feeds = true
 
 taxonomies = [
     {name = "tags", rss = false},
+    {name = "years", rss = false, paginate_by = 12},
 ]
 
 [extra]
 # Navigation menu
 menu = [
     {url = "about", name = "About"},
+    {url = "years", name = "Archive"},
     {url = "tags", name = "Tags"},
     {url = "atom.xml", name = "Feed"},
 ]

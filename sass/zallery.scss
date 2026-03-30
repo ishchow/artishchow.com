@@ -56,6 +56,105 @@ a.badge-tag {
   }
 }
 
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+  margin-bottom: 0;
+}
+
+.page-header-lede {
+  margin: 0;
+  color: rgba($paper-soft, 0.76);
+}
+
+.archive-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1rem;
+}
+
+.archive-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 1.1rem;
+  color: $white;
+  text-decoration: none;
+  background: rgba($charcoal, 0.72);
+  border: 1px solid rgba($warm-line, 0.18);
+  border-radius: 0.75rem;
+  box-shadow: 0 0.8rem 2rem rgba($ink, 0.12);
+  transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.archive-card:hover {
+  color: $white;
+  background: rgba($charcoal, 0.92);
+  border-color: rgba($orange, 0.42);
+  transform: translateY(-1px);
+}
+
+.archive-card-year {
+  font-size: 1.4rem;
+}
+
+.archive-card-meta {
+  color: rgba($paper-soft, 0.72);
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin-top: 1.5rem;
+}
+
+.pagination-summary {
+  color: rgba($paper-soft, 0.72);
+}
+
+.pagination-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.pagination-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 5.5rem;
+}
+
+@media (max-width: 42rem) {
+  .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pagination {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .pagination-links {
+    width: 100%;
+  }
+
+  .pagination-link {
+    flex: 1 1 0;
+  }
+}
+
 ::selection {
   color: $white;
   background: rgba($red, 0.85);
