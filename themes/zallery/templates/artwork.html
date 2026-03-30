@@ -27,11 +27,15 @@
     <aside class=artwork-sidebar>
         <h1>{{ page.title }}</h1>
         <div class=artwork-meta>
-            <span class=date>{{ page.date | date(format="%b %d, %Y") }}</span>
             {%- set archive_year = page.taxonomies["years"] | first -%}
-            {%- if archive_year -%}
-                <p><a class="badge badge-tag" href="{{ get_taxonomy_url(kind="years", name=archive_year) }}">Archive: {{ archive_year }}</a></p>
-            {%- endif %}
+            <span class=date>
+                {{ page.date | date(format="%b %d, ") }}
+                {%- if archive_year -%}
+                <a class="date-year-link" href="{{ get_taxonomy_url(kind="years", name=archive_year) }}">{{ archive_year }}</a>
+                {%- else -%}
+                {{ page.date | date(format="%Y") }}
+                {%- endif -%}
+            </span>
             {% if page.description -%}
                 <p>{{ page.description | markdown(inline=true) | safe }}</p>
             {%- endif -%}

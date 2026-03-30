@@ -45,6 +45,22 @@ a.badge-tag {
   box-shadow: 0 0 0 1px rgba($red, 0.08);
 }
 
+.date-year-link,
+a.date-year-link {
+  color: inherit;
+  border-bottom: 1px solid rgba($paper-soft, 0.32);
+  text-decoration: none;
+}
+
+.date-year-link:hover,
+.date-year-link:focus,
+a.date-year-link:hover,
+a.date-year-link:focus {
+  color: $link-hover-color;
+  border-bottom-color: currentColor;
+  text-decoration: none;
+}
+
 .credit {
   margin-top: 2rem;
   padding-top: 1.25rem;
