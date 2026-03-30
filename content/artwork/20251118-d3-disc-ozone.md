@@ -1,8 +1,9 @@
 +++
 title = "Disc Ozone Cover"
-description = "Day 3 artwork"
 date = 2025-11-18
+weight = 1
 [extra]
+day_number = 3
 thumbnail = "https://images.artishchow.com/20251118_D3_DiscOzone_Cover_thumbnail.webp"
 
 [taxonomies]

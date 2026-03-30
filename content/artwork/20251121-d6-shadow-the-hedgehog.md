@@ -1,8 +1,9 @@
 +++
 title = "Shadow the Hedgehog"
-description = "Day 6 artwork"
 date = 2025-11-21
+weight = 1
 [extra]
+day_number = 6
 thumbnail = "https://images.artishchow.com/20251121_D6_Shadow_the_Hedgehog_thumbnail.webp"
 
 [taxonomies]

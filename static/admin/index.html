@@ -11,6 +11,11 @@
     <script>
       const R2_BASE = "https://images.artishchow.com";
 
+      function toPositiveInteger(value, fallback) {
+        const parsed = Number.parseInt(value, 10);
+        return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
+      }
+
       // Auto-prepend R2 base URL to bare thumbnail filenames before saving
       CMS.registerEventListener({
         name: "preSave",
@@ -18,12 +23,21 @@
           let nextEntry = entry;
           const thumb = entry.getIn(["data", "extra", "thumbnail"]);
           const date = entry.getIn(["data", "date"]);
+          const dayNumber = toPositiveInteger(entry.getIn(["data", "day_number"]), null);
+          const weight = toPositiveInteger(entry.getIn(["data", "weight"]), 1);
           const dateString = date instanceof Date ? date.toISOString().slice(0, 10) : String(date || "");
           const year = /^\d{4}/.test(dateString) ? dateString.slice(0, 4) : "";
 
           if (thumb && !thumb.startsWith("http")) {
             nextEntry = nextEntry.setIn(["data", "extra", "thumbnail"], `${R2_BASE}/${thumb}`);
           }
+
+          if (dayNumber !== null) {
+            nextEntry = nextEntry.setIn(["data", "extra", "day_number"], dayNumber);
+            nextEntry = nextEntry.deleteIn(["data", "day_number"]);
+          }
+
+          nextEntry = nextEntry.setIn(["data", "weight"], weight);
 
           if (year) {
             nextEntry = nextEntry.setIn(["data", "taxonomies", "years"], [year]);

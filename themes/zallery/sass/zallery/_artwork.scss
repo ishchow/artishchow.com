@@ -54,6 +54,37 @@
     }
 }
 
+.artwork-tags {
+    margin-top: 1rem;
+}
+
+.artwork-day-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.75rem 0 1rem;
+}
+
+.artwork-day-badge,
+.artwork-piece-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    font-size: $meta-font-size;
+    line-height: 1.4;
+}
+
+.artwork-day-badge {
+    background: rgba($link-hover-color, 0.12);
+    color: $link-hover-color;
+}
+
+.artwork-piece-badge {
+    background: rgba($meta-color, 0.12);
+    color: $meta-color;
+}
+
 .artwork-sidebar {
     flex: 1;
     padding: $large-device-content-padding;
