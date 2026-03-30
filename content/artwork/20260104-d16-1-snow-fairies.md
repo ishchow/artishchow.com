@@ -8,6 +8,7 @@ thumbnail = "https://images.artishchow.com/20260104_D16_1_Snow_Fairies_thumbnail
 
 [taxonomies]
 tags = [ "Kakuriyo" ]
+years = [ "2026" ]
 +++
 
 {{ img(src="https://images.artishchow.com/20260104_D16_1_Snow_Fairies.webp", alt="Snow Fairies character artwork") }}

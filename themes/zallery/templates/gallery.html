@@ -4,11 +4,21 @@
 <div class=page>
 {% block gallery_header %}
 {% endblock gallery_header %}
+{%- if paginator is defined %}
+    {%- set gallery_pages = paginator.pages %}
+{%- elif section is defined %}
+    {%- set gallery_pages = section.pages %}
+{%- elif term is defined %}
+    {%- set gallery_pages = term.pages %}
+{%- else %}
+    {%- set gallery_pages = [] %}
+{%- endif %}
 <section class=gallery-view>
-{% for page in section.pages -%}
+{% for page in gallery_pages -%}
 {% include "partials/thumbnail.html" %}
 {%- endfor %}
 </section>
+{% include "partials/pagination.html" %}
 {% include "partials/credit.html" %}
 </div>
 {% endblock content %}

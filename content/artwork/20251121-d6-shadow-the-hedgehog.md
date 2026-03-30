@@ -7,6 +7,7 @@ thumbnail = "https://images.artishchow.com/20251121_D6_Shadow_the_Hedgehog_thumb
 
 [taxonomies]
 tags = [ "Sonic" ]
+years = [ "2025" ]
 +++
 
 {{ img(src="https://images.artishchow.com/20251121_D6_Shadow_the_Hedgehog.webp", alt="Shadow the Hedgehog artwork") }}

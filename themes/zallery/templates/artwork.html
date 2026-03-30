@@ -27,7 +27,15 @@
     <aside class=artwork-sidebar>
         <h1>{{ page.title }}</h1>
         <div class=artwork-meta>
-            <span class=date>{{ page.date | date(format="%b %d, %Y") }}</span>
+            {%- set archive_year = page.taxonomies["years"] | first -%}
+            <span class=date>
+                {{ page.date | date(format="%b %d, ") }}
+                {%- if archive_year -%}
+                <a class="date-year-link" href="{{ get_taxonomy_url(kind="years", name=archive_year) }}">{{ archive_year }}</a>
+                {%- else -%}
+                {{ page.date | date(format="%Y") }}
+                {%- endif -%}
+            </span>
             {% if page.description -%}
                 <p>{{ page.description | markdown(inline=true) | safe }}</p>
             {%- endif -%}
@@ -54,4 +62,3 @@ images.forEach((img) => { mediumZoom(img, { margin: 0, background: "", scrollOff
 </script>  
 {% endif %}
 {% endblock js_body %}
-

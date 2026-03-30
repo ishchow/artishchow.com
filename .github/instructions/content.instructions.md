@@ -15,6 +15,7 @@ description = "Description with markdown support"
 date = 2024-11-01
 [taxonomies]
 tags = ["Tag1", "Tag2"]
+years = ["2024"]
 [extra]
 thumbnail = "https://images.artishchow.com/YYYYMMDD_DN_Title_thumbnail.webp"
 +++
@@ -27,6 +28,7 @@ thumbnail = "https://images.artishchow.com/YYYYMMDD_DN_Title_thumbnail.webp"
 - Posts are flat files at `content/artwork/<slug>.md`
 - Slug format: `YYYYMMDD-dN-title` (e.g., `20260312-d19-doux`)
 - TOML frontmatter with `+++` delimiters
+- `years` in `[taxonomies]` should match the post date year; Sveltia CMS fills this automatically on save
 - `thumbnail` in `[extra]` — full R2 URL to an 800×800 WebP thumbnail
 - Body images use `{{ img(src="...", alt="...") }}` shortcode, optionally with `text="Caption"`
 - Reference images: `{{ img(src="...", alt="...", text="Reference") }}`
@@ -37,6 +39,7 @@ thumbnail = "https://images.artishchow.com/YYYYMMDD_DN_Title_thumbnail.webp"
 - `config.yml` — collection config, GitHub backend, editorial workflow
 - `index.html` — entry point loading Sveltia CMS from CDN, with:
   - `preSave` hook: auto-prepends `https://images.artishchow.com/` to bare thumbnail filenames
+  - `preSave` hook: auto-derives `taxonomies.years` from the post date
   - `registerEditorComponent`: "R2 Image" toolbar button for `{{ img() }}` shortcodes (also auto-prepends R2 URL)
 - Format: `toml-frontmatter` in collection config
 - Auth: GitHub PAT (no OAuth app needed)

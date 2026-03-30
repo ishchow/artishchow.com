@@ -32,6 +32,12 @@ collections:
             widget: list
             allow_add: true
             required: false
+          - label: Years
+            name: years
+            widget: list
+            allow_add: false
+            required: false
+            hint: Auto-derived from Date on save.
       - label: Extra
         name: extra
         widget: object

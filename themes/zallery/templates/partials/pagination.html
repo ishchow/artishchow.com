@@ -1,0 +1,13 @@
+{% if paginator is defined and paginator.number_pagers > 1 %}
+<nav class="pagination" aria-label="Pagination">
+    <div class="pagination-summary">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</div>
+    <div class="pagination-links">
+        {% if paginator.previous %}
+        <a class="action pagination-link" href="{{ paginator.previous }}">Newer</a>
+        {% endif %}
+        {% if paginator.next %}
+        <a class="action pagination-link" href="{{ paginator.next }}">Older</a>
+        {% endif %}
+    </div>
+</nav>
+{% endif %}

@@ -7,6 +7,7 @@ thumbnail = "https://images.artishchow.com/20251123_D8_Random_Sketch_thumbnail.w
 
 [taxonomies]
 tags = [ "Original Sketch" ]
+years = [ "2025" ]
 +++
 
 {{ img(src="https://images.artishchow.com/20251123_D8_Random_Sketch.webp", alt="Random sketch") }}

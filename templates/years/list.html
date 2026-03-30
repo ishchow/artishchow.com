@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Archive - {{ config.title }}
+{% endblock title %}
+
+{% block content %}
+<div class="page" style="padding-top: 1.5rem;">
+    <header class="page-header">
+        <h1>Archive</h1>
+        <p class="page-header-lede">Browse artwork by year.</p>
+    </header>
+    <section class="archive-list" aria-label="Artwork archive by year">
+        {% for term in terms | sort(attribute="name") | reverse %}
+        <a class="archive-card" href="{{ term.permalink }}">
+            <span class="archive-card-year">{{ term.name }}</span>
+            <span class="archive-card-meta">{{ term.page_count }} post{% if term.page_count != 1 %}s{% endif %}</span>
+        </a>
+        {% endfor %}
+    </section>
+    {% include "partials/credit.html" %}
+</div>
+{% endblock content %}
